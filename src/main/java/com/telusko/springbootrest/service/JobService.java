@@ -27,4 +27,11 @@ public class JobService {
     }
 
 
+    public void updateJob(JobPost jobPost) {
+        repo.updateJob(jobPost);
+    }
+
+    public void deleteJob(int postId) {
+        repo.deleteJob(postId);
+    }
 }
