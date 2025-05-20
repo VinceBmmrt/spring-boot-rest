@@ -3,10 +3,7 @@ package com.telusko.springbootrest;
 import com.telusko.springbootrest.model.JobPost;
 import com.telusko.springbootrest.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,12 @@ public class JobRestController {
     public JobPost getJob(@PathVariable("post") int postId) {
         return service.getJob(postId);
     }
+
+    @PostMapping("jobPost")
+    public JobPost addJob(@RequestBody JobPost jobPost) {
+        service.addJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
 
 }
